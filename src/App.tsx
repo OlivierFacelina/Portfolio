@@ -131,7 +131,7 @@ function App() {
               {
                 icon: <Monitor className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 mb-4" />,
                 title: "Front-end",
-                skills: ["HTML / CSS / Sass", "Bootstrap", "vueJS / JavaScript / TypeScript", "React", "SinonJS"]
+                skills: ["HTML / CSS / Sass", "Bootstrap", "VueJS / JavaScript / TypeScript", "React", "SinonJS"]
               },
               {
                 icon: <Database className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 mb-4" />,
