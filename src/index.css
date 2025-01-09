@@ -82,3 +82,35 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .animate-on-scroll,
+  .scale-in,
+  .slide-in {
+    animation-duration: 0.4s;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better text readability on mobile */
+@media (max-width: 640px) {
+  .text-gray-600 {
+    line-height: 1.6;
+  }
+}
