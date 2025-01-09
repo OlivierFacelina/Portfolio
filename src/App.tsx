@@ -1,27 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Github, Linkedin, Mail, BookOpen, Code2, Heart, GitBranch, Database, Monitor, FileText, Paintbrush, PenTool } from 'lucide-react';
 
 function App() {
+  useEffect(() => {
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-on-scroll');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.should-animate').forEach(element => {
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <header className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-4">
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-4 scale-in">
               Olivier FACELINA
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8">
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 scale-in delay-200">
               Etudiant en Troisième Année de Bachelor Design UI/UX & Développement IA
             </p>
-            <div className="flex justify-center space-x-4">
-              <a href="https://github.com/OlivierFacelina" className="text-gray-600 hover:text-gray-900 transition-colors" target="_blank" rel="noreferrer">
+            <div className="flex justify-center space-x-4 scale-in delay-300">
+              <a href="https://github.com/OlivierFacelina" className="text-gray-600 hover:text-gray-900 transition-colors hover-scale" target="_blank" rel="noreferrer">
                 <Github className="w-6 h-6" />
               </a>
-              <a href="https://www.linkedin.com/in/olivier-facelina-633a33205/" className="text-gray-600 hover:text-gray-900 transition-colors" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/olivier-facelina-633a33205/" className="text-gray-600 hover:text-gray-900 transition-colors hover-scale" target="_blank" rel="noreferrer">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href="mailto:olivier.facelina@gmail.com" className="text-gray-600 hover:text-gray-900 transition-colors" target="_blank" rel="noreferrer">
+              <a href="mailto:olivier.facelina@gmail.com" className="text-gray-600 hover:text-gray-900 transition-colors hover-scale" target="_blank" rel="noreferrer">
                 <Mail className="w-6 h-6" />
               </a>
             </div>
@@ -32,15 +51,15 @@ function App() {
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">A propos</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 should-animate">A propos</h2>
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
+                src="./assets/img/me.jpg"
                 alt="Profile"
-                className="w-48 h-48 rounded-full object-cover shadow-lg"
+                className="w-48 h-48 rounded-full object-cover shadow-lg hover-scale"
               />
-              <div>
+              <div className="should-animate">
                 <p className="text-gray-600 leading-relaxed mb-4">
                   Salut ! Bienvenue sur mon portfolio. Je m'appelle Olivier FACELINA, étudiant de 23 ans en 3e année de bachelor Chef de Projet Développement et Intelligence Artificielle à La Manu, une école située à Amiens.
                 </p>
@@ -56,10 +75,10 @@ function App() {
       {/* Education Section */}
       <section id="education" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Parcours scolaire</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 should-animate">Parcours scolaire</h2>
           <div className="max-w-3xl mx-auto">
             <div className="space-y-8">
-              <div className="flex items-start">
+              <div className="flex items-start should-animate hover-lift p-6 bg-white rounded-lg">
                 <div className="flex-shrink-0">
                   <BookOpen className="w-8 h-8 text-indigo-600" />
                 </div>
@@ -75,7 +94,7 @@ function App() {
           </div>
           <div className="max-w-3xl mx-auto mt-5">
             <div className="space-y-8">
-              <div className="flex items-start">
+              <div className="flex items-start should-animate hover-lift p-6 bg-white rounded-lg">
                 <div className="flex-shrink-0">
                   <BookOpen className="w-8 h-8 text-indigo-600" />
                 </div>
@@ -91,7 +110,7 @@ function App() {
           </div>
           <div className="max-w-3xl mx-auto mt-5">
             <div className="space-y-8">
-              <div className="flex items-start">
+              <div className="flex items-start should-animate hover-lift p-6 bg-white rounded-lg">
                 <div className="flex-shrink-0">
                   <BookOpen className="w-8 h-8 text-indigo-600" />
                 </div>
@@ -107,7 +126,7 @@ function App() {
           </div>
           <div className="max-w-3xl mx-auto mt-5">
             <div className="space-y-8">
-              <div className="flex items-start">
+              <div className="flex items-start should-animate hover-lift p-6 bg-white rounded-lg">
                 <div className="flex-shrink-0">
                   <BookOpen className="w-8 h-8 text-indigo-600" />
                 </div>
@@ -127,9 +146,9 @@ function App() {
       {/* Skills Section */}
       <section id="skills" className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Skills</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 should-animate">Skills</h2>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="p-6 bg-gray-50 rounded-lg">
+            <div className="p-6 bg-gray-50 rounded-lg should-animate hover-lift">
               <Monitor className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Front-end</h3>
               <ul className="space-y-2 text-gray-600">
@@ -140,7 +159,7 @@ function App() {
                 <li>SinonJS</li>
               </ul>
             </div>
-            <div className="p-6 bg-gray-50 rounded-lg">
+            <div className="p-6 bg-gray-50 rounded-lg should-animate hover-lift">
               <Database className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Back-end</h3>
               <ul className="space-y-2 text-gray-600">
@@ -153,7 +172,7 @@ function App() {
                 <li>Apache Solr</li>
               </ul>
             </div>
-            <div className="p-6 bg-gray-50 rounded-lg">
+            <div className="p-6 bg-gray-50 rounded-lg should-animate hover-lift">
               <GitBranch className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Versioning / réseaux</h3>
               <ul className="space-y-2 text-gray-600">
@@ -166,7 +185,7 @@ function App() {
                 <li>CircleCI</li>
               </ul>
             </div>
-            <div className="p-6 bg-gray-50 rounded-lg">
+            <div className="p-6 bg-gray-50 rounded-lg should-animate hover-lift">
               <FileText className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">CMS</h3>
               <ul className="space-y-2 text-gray-600">
@@ -177,7 +196,7 @@ function App() {
                 <li>Prestashop</li>
               </ul>
             </div>
-            <div className="p-6 bg-gray-50 rounded-lg">
+            <div className="p-6 bg-gray-50 rounded-lg should-animate hover-lift">
               <Paintbrush className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Design UI/UX</h3>
               <ul className="space-y-2 text-gray-600">
@@ -189,7 +208,7 @@ function App() {
                 <li>CapCut</li>
               </ul>
             </div>
-            <div className="p-6 bg-gray-50 rounded-lg">
+            <div className="p-6 bg-gray-50 rounded-lg should-animate hover-lift">
               <PenTool className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Logiciels</h3>
               <ul className="space-y-2 text-gray-600">
@@ -208,23 +227,23 @@ function App() {
       {/* Hobbies Section */}
       <section id="hobbies" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Hobbies</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 should-animate">Hobbies</h2>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-lg shadow-sm">
+            <div className="p-6 bg-white rounded-lg shadow-sm should-animate hover-lift">
               <Heart className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Voyager</h3>
               <p className="text-gray-600">
                 Singapour, Japon, Etats-Unis, Espagne, Thaïlande, Martinique.
               </p>
             </div>
-            <div className="p-6 bg-white rounded-lg shadow-sm">
+            <div className="p-6 bg-white rounded-lg shadow-sm should-animate hover-lift">
               <Heart className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Sports</h3>
               <p className="text-gray-600">
                 Football, tennis, basketball, hockey, Formule 1, rugby.
               </p>
             </div>
-            <div className="p-6 bg-white rounded-lg shadow-sm">
+            <div className="p-6 bg-white rounded-lg shadow-sm should-animate hover-lift">
               <Heart className="w-8 h-8 text-indigo-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Autre</h3>
               <p className="text-gray-600">
@@ -237,7 +256,7 @@ function App() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center scale-in">
           <p>© 2025 Olivier FACELINA. All rights reserved.</p>
         </div>
       </footer>
