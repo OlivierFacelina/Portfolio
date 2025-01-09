@@ -64,7 +64,7 @@ function App() {
                 />
               </div>
               <div className="should-animate text-center md:text-left">
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4 text-justify">
                   Salut ! Bienvenue sur mon portfolio. Je m'appelle Olivier FACELINA, étudiant de 23 ans en 3e année de bachelor Chef de Projet Développement et Intelligence Artificielle à La Manu, une école située à Amiens.
                 </p>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
