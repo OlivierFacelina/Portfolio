@@ -55,7 +55,7 @@ function App() {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <img
-                src="./assets/img/me.jpg"
+                src="/assets/img/me.jpg"
                 alt="Profile"
                 className="w-48 h-48 rounded-full object-cover shadow-lg hover-scale"
               />
