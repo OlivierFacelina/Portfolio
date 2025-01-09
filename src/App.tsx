@@ -67,7 +67,7 @@ function App() {
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
                   Salut ! Bienvenue sur mon portfolio. Je m'appelle Olivier FACELINA, étudiant de 23 ans en 3e année de bachelor Chef de Projet Développement et Intelligence Artificielle à La Manu, une école située à Amiens.
                 </p>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
                   Passionné par le développement full stack, j'explore autant le front-end que le back-end. Mon objectif est de continuer à apprendre et à créer des solutions innovantes en poursuivant un master MIAGE après mon bachelor.
                 </p>
               </div>
